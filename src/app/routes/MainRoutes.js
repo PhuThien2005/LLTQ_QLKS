@@ -6,6 +6,7 @@ import RoomList from '../pages/RoomList';
 import StaffList from '../pages/StaffList';
 import PaymentList from '../pages/PaymentList/PaymentList';
 import RoomTypeList from '../pages/RoomTypeList/RoomTypeList';
+import BedDetailList from '../pages/BedDetailList/BedDetailList';
 
 export default function MainRoutes() {
     return (
@@ -56,6 +57,14 @@ export default function MainRoutes() {
                     element={
                         <DefaultLayout>
                             <RoomTypeList /> 
+                        </DefaultLayout>
+                    }
+                />
+                <Route
+                    path="/danh-sach-chi-tiet-giuong"
+                    element={
+                        <DefaultLayout>
+                            <BedDetailList /> 
                         </DefaultLayout>
                     }
                 />
