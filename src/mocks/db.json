@@ -1,4 +1,19 @@
 {
+    "revenue-data": [
+      { "week": "Tuần 1", "revenue": 1500, "details": { "Phòng Tiêu Chuẩn": 500, "Phòng Cao Cấp": 700, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 2", "revenue": 2000, "details": { "Phòng Tiêu Chuẩn": 800, "Phòng Cao Cấp": 900, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 3", "revenue": 1800, "details": { "Phòng Tiêu Chuẩn": 600, "Phòng Cao Cấp": 900, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 4", "revenue": 2200, "details": { "Phòng Tiêu Chuẩn": 1000, "Phòng Cao Cấp": 900, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 5", "revenue": 1700, "details": { "Phòng Tiêu Chuẩn": 700, "Phòng Cao Cấp": 700, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 6", "revenue": 2100, "details": { "Phòng Tiêu Chuẩn": 900, "Phòng Cao Cấp": 900, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 7", "revenue": 1900, "details": { "Phòng Tiêu Chuẩn": 700, "Phòng Cao Cấp": 900, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 8", "revenue": 2300, "details": { "Phòng Tiêu Chuẩn": 1100, "Phòng Cao Cấp": 900, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 9", "revenue": 1600, "details": { "Phòng Tiêu Chuẩn": 600, "Phòng Cao Cấp": 700, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 10", "revenue": 2500, "details": { "Phòng Tiêu Chuẩn": 1200, "Phòng Cao Cấp": 1000, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 11", "revenue": 1800, "details": { "Phòng Tiêu Chuẩn": 700, "Phòng Cao Cấp": 800, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 12", "revenue": 2000, "details": { "Phòng Tiêu Chuẩn": 900, "Phòng Cao Cấp": 800, "Phòng Hạng Sang": 300 } },
+      { "week": "Tuần 13", "revenue": 2200, "details": { "Phòng Tiêu Chuẩn": 1000, "Phòng Cao Cấp": 900, "Phòng Hạng Sang": 300 } }
+    ],
     "room-types": [
         {
             "id": "1",

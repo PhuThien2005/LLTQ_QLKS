@@ -8,6 +8,7 @@ import PaymentList from '../pages/PaymentList/PaymentList';
 import RoomTypeList from '../pages/RoomTypeList/RoomTypeList';
 import BedDetailList from '../pages/BedDetailList/BedDetailList';
 import StaffTypeList from '../pages/StaffTypeList/StaffTypeList';
+import RevenueChart from '../pages/RevenueChart/RevenueChart';
 
 export default function MainRoutes() {
     return (
@@ -77,7 +78,14 @@ export default function MainRoutes() {
                         </DefaultLayout>
                     }
                 />
-
+                <Route
+                    path="/revenue"
+                    element={
+                        <DefaultLayout>
+                            <RevenueChart /> 
+                        </DefaultLayout>
+                    }
+                />
             </Routes>
         </BrowserRouter>
     );

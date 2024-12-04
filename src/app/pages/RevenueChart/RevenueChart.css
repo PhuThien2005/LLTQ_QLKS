@@ -1,0 +1,52 @@
+.chart-container {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    /* background-color: #ffe6f0; */
+    /* color: #5a2d48; */
+    border-radius: 10px;
+}
+
+.details-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.details-table {
+    flex: 1;
+    margin-right: 20px;
+    /* background-color: #fff5fa; */
+    /* border: 1px solid #f582c2; */
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.details-table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.details-table th,
+.details-table td {
+    padding: 10px;
+    /* border: 1px solid #f582c2; */
+    text-align: left;
+}
+
+.details-table th {
+    /* background-color: #f8b4d9; */
+    /* color: #5a2d48; */
+}
+
+.pie-chart {
+    flex: 1;
+    /* background-color: #fff5fa; */
+    /* border: 1px solid #f582c2; */
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 13px;
+}
