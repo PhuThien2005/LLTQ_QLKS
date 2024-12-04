@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import Button from '../Button';
-import RoomInformation from '../DetailInformation';
+import RoomTypeInformation from '../RoomTypeInformation';
 import { CancelIcon, CheckIcon, EditIcon } from '../Icons';
 import styles from './RoomTypeModal.module.scss'; 
 
@@ -46,7 +46,7 @@ function RoomModal({ className, data }) {
                     <CancelIcon className={cx('icon')} />
                 </button>
             )}
-            <RoomInformation data={data} isEditing={isEditing} /> {}
+            <RoomTypeInformation data={data} isEditing={isEditing} /> {}
             {isEditing && (
                 <div className={cx('btn-wrapper')}>
                     <Button
