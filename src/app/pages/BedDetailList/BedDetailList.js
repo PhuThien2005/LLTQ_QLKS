@@ -8,6 +8,7 @@ import { signify } from 'react-signify';
 import { removeVietnameseTones } from '../../modules/lib/removeVietnameseTones';
 import BedDetailItem from './partials/BedDetailItem';
 import BedDetailModal from '../../components/BedDetailModal';
+import AddBedDetailModal from '../../components/AddBedDetailModal';
 
 const cx = classNames.bind(styles);
 
@@ -49,6 +50,7 @@ function BedDetailList() {
 
     return (
         <div className={cx('wrapper') + ' grid'}>
+            {/* Header */}
             <div className={cx('header')}>
                 <div className={cx('search-wrapper')}>
                     <SearchIcon />
@@ -61,19 +63,26 @@ function BedDetailList() {
                 <button
                     className={cx('add-button')}
                     onClick={() => {
+                        console.log('Nút Thêm được nhấn'); // Kiểm tra sự kiện
                         sShowModal.set({
                             isShowing: true,
+                            type: 'add', // Thêm mới
                             data: null,
                         });
+                        // console.log('Modal state:', sShowModal.get());
                     }}
                 >
                     Thêm
                 </button>
             </div>
+    
+            {/* List Header */}
             <div className={'row ' + cx('list-header')}>
-                <p className="col c-2 m-2 l-2">Mã giường</p>
-                <p className="col c-7 m-7 l-7">Chi tiết giường</p>
+                <p className="col c-3 m-4 l-3">Mã giường</p>
+                <p className="col c-9 m-8 l-9">Chi tiết loại giường</p>
             </div>
+    
+            {/* List Items */}
             {filteredBedDetails.map((item, index) => (
                 <BedDetailItem
                     key={index}
@@ -81,22 +90,41 @@ function BedDetailList() {
                     onClick={() => {
                         sShowModal.set({
                             isShowing: true,
+                            type: 'edit', // Chỉnh sửa
                             data: item,
                         });
+                        // console.log('Modal state:', sShowModal.get());
                     }}
                 />
             ))}
+    
+            {/* Modal */}
             <sShowModal.HardWrap>
                 {(value) => {
                     if (value.isShowing) {
                         return (
                             <div id="chi-tiet-giuong" className="modal">
-                                <a href="/danh-sach-chi-tiet-giuong#" className="modal-overlay"></a>
-                                <BedDetailModal
-                                    className="modal-body"
-                                    type="bed-detail"
-                                    data={value.data}
-                                />
+                                <a
+                                    href="/danh-sach-chi-tiet-giuong#"
+                                    className="modal-overlay"
+                                    onClick={() => sShowModal.set({ isShowing: false })}
+                                ></a>
+                                {value.type === 'add' ? (
+                                    <AddBedDetailModal
+                                        onSave={(newData) => {
+                                            const newBedDetails = [...bedDetails, newData];
+                                            setFilteredBedDetails(newBedDetails);
+                                            bedDetails = newBedDetails;
+                                        }}
+                                        onClose={() => sShowModal.set({ isShowing: false })}
+                                    />
+                                ) : (
+                                    <BedDetailModal
+                                        className="modal-body"
+                                        type="bed-detail"
+                                        data={value.data}
+                                    />
+                                )}
                             </div>
                         );
                     }
@@ -105,6 +133,7 @@ function BedDetailList() {
             </sShowModal.HardWrap>
         </div>
     );
+    
 }
 
 export default BedDetailList;

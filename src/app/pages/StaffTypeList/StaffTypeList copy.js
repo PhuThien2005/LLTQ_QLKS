@@ -1,13 +1,13 @@
 import classNames from 'classnames/bind';
-import styles from './RoomTypeList.module.scss';
+import styles from './StaffTypeList.module.scss';
 import { SearchIcon } from '../../components/Icons';
 import { useEffect, useState } from 'react';
 import { sCurrentPage } from '../../layouts/DefaultLayout/Sidebar/sidebarStore';
 import { get } from '../../modules/lib/httpHandle';
 import { signify } from 'react-signify';
 import { removeVietnameseTones } from '../../modules/lib/removeVietnameseTones';
-import RoomTypeItem from './partials/RoomTypeItem';
-import RoomTypeModal from '../../components/RoomTypeModal';
+import StaffTypeItem from './partials/StaffTypeItem';
+import StaffTypeModal from '../../components/StaffTypeModal';
 
 const cx = classNames.bind(styles);
 
@@ -16,46 +16,49 @@ const sShowModal = signify({
     data: undefined,
 });
 
-let roomtypes = [];
+let staffTypes = [];
 
-function RoomTypeList() {
-    const [filteredRoomTypes, setFilteredRoomTypes] = useState([]);
+function StaffTypeList() {
+    const [filteredStaffTypes, setFilteredStaffTypes] = useState([]);
 
     useEffect(() => {
-        sCurrentPage.set('/danh-sach-loai-phong');
+        sCurrentPage.set('/danh-sach-loai-nhan-vien');
 
+        // Lấy dữ liệu "staff-types"
         get(
-            'room-types/',
+            'staff-types/',
             (data) => {
-                roomtypes = data;
-                setFilteredRoomTypes(data);
+                staffTypes = data;
+                setFilteredStaffTypes(data);
             },
             () => {
-                alert('Không tìm thấy danh sách loại phòng!');
+                alert('Không tìm thấy danh sách loại nhân viên!');
             },
         );
     }, []);
 
     const handleSearchInput = (e) => {
         const value = e.target.value.toLowerCase();
-        const searchingRoomTypes = roomtypes.filter((item) => {
+        const searchingStaffTypes = staffTypes.filter((item) => {
             return (
-                item.id.includes(value) ||
-                removeVietnameseTones(item.roomTypeText).toLowerCase().includes(value) ||
-                item.size.toString().includes(value) ||
-                removeVietnameseTones(item.bedDetailText).toLowerCase().includes(value) ||
-                item.price.toString().includes(value)
+                item.id.toString().includes(value) || // Tìm theo ID
+                removeVietnameseTones(item.staffTypeText).toLowerCase().includes(value) // Tìm theo tên loại nhân viên
             );
         });
-        setFilteredRoomTypes(searchingRoomTypes);
+        setFilteredStaffTypes(searchingStaffTypes);
     };
 
     return (
         <div className={cx('wrapper') + ' grid'}>
+            {/* Header */}
             <div className={cx('header')}>
                 <div className={cx('search-wrapper')}>
                     <SearchIcon />
-                    <input type="text" placeholder="Tìm kiếm loại phòng..." onInput={handleSearchInput} />
+                    <input
+                        type="text"
+                        placeholder="Tìm kiếm loại nhân viên..."
+                        onInput={handleSearchInput}
+                    />
                 </div>
                 <button
                     className={cx('add-button')}
@@ -70,13 +73,13 @@ function RoomTypeList() {
                 </button>
             </div>
             <div className={'row ' + cx('list-header')}>
-                <p className="col c-3 m-3 l-3">Tên loại phòng</p>
-                <p className="col c-2 m-2 l-2">Kích thước (m²)</p>
-                <p className="col c-4 m-4 l-4">Chi tiết giường</p>
-                <p className="col c-3 m-3 l-3">Giá (VNĐ)</p>
+                <p className="col c-3 m-4 l-3">Mã loại</p>
+                <p className="col c-9 m-8 l-9">Tên loại nhân viên</p>
             </div>
-            {filteredRoomTypes.map((item, index) => (
-                <RoomTypeItem
+
+            {/* List Items */}
+            {filteredStaffTypes.map((item, index) => (
+                <StaffTypeItem
                     key={index}
                     data={item}
                     onClick={() => {
@@ -87,13 +90,23 @@ function RoomTypeList() {
                     }}
                 />
             ))}
+
+            {/* Modal */}
             <sShowModal.HardWrap>
                 {(value) => {
                     if (value.isShowing) {
                         return (
-                            <div id="chi-tiet-loai-phong" className="modal">
-                                <a href="/danh-sach-loai-phong#" className="modal-overlay"></a>
-                                <RoomTypeModal className="modal-body" type="room-type-detail" data={value.data} />
+                            <div id="chi-tiet-loai-nhan-vien" className="modal">
+                                <a
+                                    href="/danh-sach-loai-nhan-vien#"
+                                    className="modal-overlay"
+                                    // onClick={() => sShowModal.set({ isShowing: false })}
+                                ></a>
+                                <StaffTypeModal
+                                    className="modal-body"
+                                    type="staff-type-detail"
+                                    data={value.data}
+                                />
                             </div>
                         );
                     }
@@ -104,4 +117,4 @@ function RoomTypeList() {
     );
 }
 
-export default RoomTypeList;
+export default StaffTypeList;

@@ -1,13 +1,13 @@
 import classNames from 'classnames/bind';
 import { useEffect, useState } from 'react';
 import Button from '../Button';
-import BedDetailInformation from '../BedDetailInformation';
+import StaffTypeInformation from '../StaffTypeInformation';
 import { CancelIcon, CheckIcon, EditIcon } from '../Icons';
-import styles from './BedDetailModal.module.scss'; 
+import styles from './StaffTypeModal.module.scss'; 
 
 const cx = classNames.bind(styles);
 
-function BedDetailModal({ className, data }) {
+function StaffTypeModal({ className, data }) {
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
@@ -23,7 +23,7 @@ function BedDetailModal({ className, data }) {
                 e.stopPropagation();
             }}
         >
-            <h2 className={cx('heading')}>THÔNG TIN GIƯỜNG</h2>
+            <h2 className={cx('heading')}>THÔNG TIN LOẠI NHÂN VIÊN</h2>
             {!isEditing && (
                 <button
                     className={cx('edit-btn')}
@@ -46,7 +46,7 @@ function BedDetailModal({ className, data }) {
                     <CancelIcon className={cx('icon')} />
                 </button>
             )}
-            <BedDetailInformation data={data} isEditing={isEditing} /> {}
+            <StaffTypeInformation data={data} isEditing={isEditing} /> {}
             {isEditing && (
                 <div className={cx('btn-wrapper')}>
                     <Button
@@ -62,4 +62,4 @@ function BedDetailModal({ className, data }) {
     );
 }
 
-export default BedDetailModal;
+export default StaffTypeModal;

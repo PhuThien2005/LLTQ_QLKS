@@ -7,6 +7,7 @@ import StaffList from '../pages/StaffList';
 import PaymentList from '../pages/PaymentList/PaymentList';
 import RoomTypeList from '../pages/RoomTypeList/RoomTypeList';
 import BedDetailList from '../pages/BedDetailList/BedDetailList';
+import StaffTypeList from '../pages/StaffTypeList/StaffTypeList';
 
 export default function MainRoutes() {
     return (
@@ -65,6 +66,14 @@ export default function MainRoutes() {
                     element={
                         <DefaultLayout>
                             <BedDetailList /> 
+                        </DefaultLayout>
+                    }
+                />
+                <Route
+                    path="/danh-sach-loai-nhan-vien"
+                    element={
+                        <DefaultLayout>
+                            <StaffTypeList /> 
                         </DefaultLayout>
                     }
                 />

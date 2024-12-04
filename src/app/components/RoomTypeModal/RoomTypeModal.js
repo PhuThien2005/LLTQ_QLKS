@@ -7,7 +7,7 @@ import styles from './RoomTypeModal.module.scss';
 
 const cx = classNames.bind(styles);
 
-function RoomModal({ className, data }) {
+function RoomTypeModal({ className, data }) {
     const [isEditing, setIsEditing] = useState(false);
 
     useEffect(() => {
@@ -62,4 +62,4 @@ function RoomModal({ className, data }) {
     );
 }
 
-export default RoomModal;
+export default RoomTypeModal;
