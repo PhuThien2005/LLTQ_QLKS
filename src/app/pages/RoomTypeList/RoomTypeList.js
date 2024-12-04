@@ -57,6 +57,17 @@ function RoomTypeList() {
                     <SearchIcon />
                     <input type="text" placeholder="Tìm kiếm loại phòng..." onInput={handleSearchInput} />
                 </div>
+                <button
+                    className={cx('add-button')}
+                    onClick={() => {
+                        sShowModal.set({
+                            isShowing: true,
+                            data: null, // Dữ liệu rỗng cho mục thêm mới
+                        });
+                    }}
+                >
+                    Thêm
+                </button>
             </div>
             <div className={'row ' + cx('list-header')}>
                 <p className="col c-3 m-3 l-3">Tên loại phòng</p>
