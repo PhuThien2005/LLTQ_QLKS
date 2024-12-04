@@ -3,11 +3,11 @@ import styles from './RoomTypeList.module.scss';
 import { SearchIcon } from '../../components/Icons';
 import { useEffect, useState } from 'react';
 import { sCurrentPage } from '../../layouts/DefaultLayout/Sidebar/sidebarStore';
-import { get } from '../../modules/lib/httpHandle';
+import { get} from '../../modules/lib/httpHandle';
 import { signify } from 'react-signify';
 import { removeVietnameseTones } from '../../modules/lib/removeVietnameseTones';
 import RoomTypeItem from './partials/RoomTypeItem';
-import RoomModal from '../../components/RoomTypeModal';
+import RoomTypeModal from '../../components/RoomTypeModal';
 
 const cx = classNames.bind(styles);
 
@@ -62,7 +62,7 @@ function RoomTypeList() {
                     onClick={() => {
                         sShowModal.set({
                             isShowing: true,
-                            data: null, // Dữ liệu rỗng cho mục thêm mới
+                            data: null, 
                         });
                     }}
                 >
@@ -93,7 +93,7 @@ function RoomTypeList() {
                         return (
                             <div id="chi-tiet-loai-phong" className="modal">
                                 <a href="/danh-sach-loai-phong#" className="modal-overlay"></a>
-                                <RoomModal className="modal-body" type="room-detail" data={value.data} />
+                                <RoomTypeModal className="modal-body" type="room-type-detail" data={value.data} />
                             </div>
                         );
                     }
