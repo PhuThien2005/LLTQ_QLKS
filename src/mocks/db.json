@@ -1,5 +1,5 @@
 {
-    "roomtypes": [
+    "room-types": [
         {
             "id": "1",
             "roomTypeText": "Phòng Executive Suit",

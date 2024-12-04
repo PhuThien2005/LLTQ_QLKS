@@ -70,15 +70,16 @@ function DetailInformation({ className, data = undefined, isEditing = false }) {
                             <input
                                 type="text"
                                 value={data.bedDetailText}
-                                {...{ disabled: !isEditing }}
+                                readOnly
                             />
                         </div>
+
                     </div>
                     <div className="row">
                         <div className={cx('input-with-label') + ' col c-12 m-12 l-12'}>
                             <span>Giá: </span>
                             <input
-                                type="number"
+                                type="text"
                                 value={data.price}
                                 {...{ disabled: !isEditing }}
                             />

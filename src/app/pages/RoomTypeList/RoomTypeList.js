@@ -25,7 +25,7 @@ function RoomTypeList() {
         sCurrentPage.set('/danh-sach-loai-phong');
 
         get(
-            'roomtypes/',
+            'room-types/',
             (data) => {
                 roomtypes = data;
                 setFilteredRoomTypes(data);
