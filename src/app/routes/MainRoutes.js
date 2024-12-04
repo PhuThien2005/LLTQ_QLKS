@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import RoomList from '../pages/RoomList';
 import StaffList from '../pages/StaffList';
 import PaymentList from '../pages/PaymentList/PaymentList';
+import RoomTypeList from '../pages/RoomTypeList/RoomTypeList';
 
 export default function MainRoutes() {
     return (
@@ -50,6 +51,15 @@ export default function MainRoutes() {
                         </DefaultLayout>
                     }
                 />
+                <Route
+                    path="/danh-sach-loai-phong"
+                    element={
+                        <DefaultLayout>
+                            <RoomTypeList /> 
+                        </DefaultLayout>
+                    }
+                />
+
             </Routes>
         </BrowserRouter>
     );

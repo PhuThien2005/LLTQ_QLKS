@@ -1,9 +1,10 @@
 import classNames from 'classnames/bind';
-import styles from './GuestInformation.module.scss';
+import styles from './DetailInformation.module.scss';
+
 
 const cx = classNames.bind(styles);
 
-function GuestInformation({ className, data = undefined, isEditing = false }) {
+function DetailInformation({ className, data = undefined, isEditing = false }) {
     return (
         <div className={cx('wrapper') + ' ' + className}>
             {data === undefined && (
@@ -104,4 +105,4 @@ function GuestInformation({ className, data = undefined, isEditing = false }) {
     );
 }
 
-export default GuestInformation;
+export default DetailInformation;
