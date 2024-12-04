@@ -7,7 +7,7 @@ import styles from './AddBedDetailModal.module.scss';
 
 const cx = classNames.bind(styles);
 
-function AddBedDetailModal({ onClose, onSave }) {
+function AddBedDetailModal({ onClose, onSave, onClick , className, data}) {
     const [newBedDetail, setNewBedDetail] = useState({
         id: '',
         bedDetailText: '',
@@ -19,11 +19,11 @@ function AddBedDetailModal({ onClose, onSave }) {
     };
 
     return (
-        // <a
-        //     href="#chi-tiet-giuong"
-        //     className={className + ' ' + cx('wrapper') + ' row'}
-        //     onClick={onClick}
-        // >
+        <a
+            href="#chi-tiet-giuong"
+            className={className + ' ' + cx('wrapper') + ' row'}
+            onClick={onClick}
+        >
         <div className="add-bed-detail-modal">
             <h2>Thêm Chi Tiết Giường Mới</h2>
             <form>
@@ -50,7 +50,7 @@ function AddBedDetailModal({ onClose, onSave }) {
                 </button>
             </form>
         </div>
-        // </a>
+        </a>
     );
 }
 

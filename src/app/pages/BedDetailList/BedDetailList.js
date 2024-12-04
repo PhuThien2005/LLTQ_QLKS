@@ -117,6 +117,9 @@ function BedDetailList() {
                                             bedDetails = newBedDetails;
                                         }}
                                         onClose={() => sShowModal.set({ isShowing: false })}
+                                        className="modal-body"
+                                        type="bed-detail"
+                                        data={value.data}
                                     />
                                 ) : (
                                     <BedDetailModal
