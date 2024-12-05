@@ -5,6 +5,8 @@ import Home from '../pages/Home';
 import RoomList from '../pages/RoomList';
 import StaffList from '../pages/StaffList';
 import PaymentList from '../pages/PaymentList/PaymentList';
+import UserProtect from './UserProtect';
+import Login from '../pages/Login/Login';
 import RoomTypeList from '../pages/RoomTypeList/RoomTypeList';
 import BedDetailList from '../pages/BedDetailList/BedDetailList';
 import StaffTypeList from '../pages/StaffTypeList/StaffTypeList';
@@ -14,11 +16,14 @@ export default function MainRoutes() {
     return (
         <BrowserRouter>
             <Routes>
+                <Route path="/login" element={<Login />} />
                 <Route
                     path="/"
                     element={
                         <DefaultLayout>
+                            {/* <UserProtect> */}
                             <Home />
+                            {/* </UserProtect> */}
                         </DefaultLayout>
                     }
                 />
@@ -26,7 +31,9 @@ export default function MainRoutes() {
                     path="/danh-sach-phong"
                     element={
                         <DefaultLayout>
-                            <RoomList />
+                            <UserProtect>
+                                <RoomList />
+                            </UserProtect>
                         </DefaultLayout>
                     }
                 />
@@ -34,7 +41,9 @@ export default function MainRoutes() {
                     path="/danh-sach-khach-hang"
                     element={
                         <DefaultLayout>
-                            <GuestList />
+                            <UserProtect>
+                                <GuestList />
+                            </UserProtect>
                         </DefaultLayout>
                     }
                 />
@@ -42,7 +51,9 @@ export default function MainRoutes() {
                     path="/danh-sach-nhan-vien"
                     element={
                         <DefaultLayout>
-                            <StaffList />
+                            <UserProtect>
+                                <StaffList />
+                            </UserProtect>
                         </DefaultLayout>
                     }
                 />
@@ -50,7 +61,9 @@ export default function MainRoutes() {
                     path="/lich-su-dat-phong"
                     element={
                         <DefaultLayout>
-                            <PaymentList />
+                            <UserProtect>
+                                <PaymentList />
+                            </UserProtect>
                         </DefaultLayout>
                     }
                 />
